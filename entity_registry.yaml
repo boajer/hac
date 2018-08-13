@@ -1,0 +1,25 @@
+media_player.:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: a9202c3950e7690609f19d307394910e41fdcdbbe990bb9e71ab0920deb95e5f
+remote.:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: a9202c3950e7690609f19d307394910e41fdcdbbe990bb9e71ab0920deb95e5f
+media_player._2:
+  config_entry_id: 5f7e35566b81401983bfed781a21b67e
+  name:
+  platform: cast
+  unique_id: 0d7e15d4-4e63-d6c7-852a-4420d7afc10d
+sensor.miphoneks_battery_level:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: level_miphoneks
+sensor.miphoneks_battery_state:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: state_miphoneks

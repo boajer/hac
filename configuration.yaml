@@ -1,0 +1,112 @@
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lat
+  longitude: !secret lon
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Minsk
+  # Customization file
+  customize: !include customize.yaml
+
+ios:
+
+homekit:
+
+frontend:
+
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+
+# Netatmo
+netatmo:
+  api_key: !secret netatmo_api
+  secret_key: !secret netatmo_key
+  username: !secret netatmo_email
+  password: !secret netatmo_pwd
+
+#xiaomi vacuum
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.2.13
+    token: !secret xioami_vacuum_token
+
+# BroadLink RM Pro
+switch 1:
+  platform: broadlink
+  host: 192.168.2.20
+  mac: 34:ea:34:43:1d:f3
+  timeout: 15
+  switches:
+    lamps:
+      friendly_name: "Main Lamp"
+      command_on: 'JgBYAAABKZUSEhEUERMRFBETETkTERI4EzcSOBI3FBESOBI3ExIRORI3ExIRExI4ExIROBM3EzcSEhI4EzcSEhI4ExISEhETEgAFMwABKkgSAAxfAAEqSBQADQU='
+      command_off: 'JgBYAAABKZUSEhEUERMRFBETETkTERI4EzcSOBI3FBESOBI3ExIRORI3ExIRExI4ExIROBM3EzcSEhI4EzcSEhI4ExISEhETEgAFMwABKkgSAAxfAAEqSBQADQU='
+    conditioning_hall:
+      friendly_name: "AirCon"
+      command_off: 'JgDYAAABKZITNxM3ExETEhMRExETNxM3ExISERQRExISEhMREzcTERMSExISEhMRExISNxM2FDcSEhMRExITERMSEhITERMRExITERMSExETERM4EhEUEhIRExITEhIRFBETERM3ExETEhMSEhEUEhIREzcTERMSExETERQRExETEhMRExEUERMRExITERMRExMSERMRFBETERMSExETERQRExETEhMRExEUERMRExITEhIRExITERM3ExETNxMRExITERMRFBETERMSExETNxMREzcTNhQREwANBQ=='
+      # command_on: 'JgDYAAABKZIUNhM3ExETERQRExEUNhM3ExETERQRExEUERMREzcTERMRFBETERQRExETNxM2FDYTERQRExEUERMRExEUERMRFBETERMRFBETERQ2ExEUERMRExEUERMRFBAUERM3ExETERQRExEUERMREzcTERMRFBETERQQFBETERQRExETERQRExEUERMRExEUERMRFBETERMRFBETERQQFDYUERMRExEUERMRFBAUERMRFBETERM3ExEUNhMRFBETERMRFBETERQRExETNxMRExEUERM2FAANBQ=='
+      command_on: 'JgDYAAABKZITNxM3ExETERQRExISNxM3ExETERQSEhETNxM3EzYTExIRExITEhIRExITNhM3EzcTERMSExETEhISExETERQRExETEhMRExEUERM2FBETNxMSEhEUERMRExITERMSExETERMSExETERQREzYUEhISEhITEhIRFBISERMTEhETERQSEhISEhMRExEUERMRExITERMSExETERMSEzYTEhMRExITERMRExITERMRFBISEhI3ExEUNhMSExETERMSExISERQRExETOBI3EzYUNhM3EwANBQ=='
+
+media_player:
+  - platform: samsungtv
+    host: 192.168.2.10
+    port: 8001
+
+system_log:
+
+zeroconf:
+
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
