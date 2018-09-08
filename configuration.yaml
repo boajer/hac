@@ -27,6 +27,11 @@ http:
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
+  # cors_allowed_origins: http://hass.iddqd.keenetic.pro
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.2.0/24
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
@@ -100,6 +105,8 @@ media_player:
 system_log:
 
 zeroconf:
+
+upnp:
 
 
 weather:
